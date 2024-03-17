@@ -1,32 +1,40 @@
+# Obsidian Knowledge Weaver
+
+Obsidian Knowledge Weaver is a plugin for Obsidian that replaces embed syntax `![[]]` with the actual content of the embedded notes, and copies the result to the clipboard. This is particularly useful when you need to provide detailed context to AI language models like ChatGPT or Claude.
+
+## Why Use Obsidian Knowledge Weaver?
+
+When interacting with AI language models, providing rich context is essential for getting accurate and relevant responses. However, manually assembling this context can be time-consuming and inefficient, especially if you need to pull information from multiple sources.
+
+Obsidian Knowledge Weaver streamlines this process by leveraging Obsidian's powerful note-linking capabilities. By using the standard `![[]]` syntax to embed related notes within a main note, you can quickly build a comprehensive context. The plugin then weaves these embedded notes into a single, cohesive text that you can easily share with the AI model.
+
+### For Obsidian Users
+
+If you're an Obsidian user, this plugin allows you to leverage your existing knowledge base more effectively when engaging with AI assistants. Instead of manually copying and pasting information from various notes, you can simply use the familiar embed syntax to pull in relevant context. This not only saves time but also encourages you to create more interconnected and contextually rich notes.
+
+### For ChatGPT and Claude Users
+
+For those who frequently use AI language models like ChatGPT or Claude, Obsidian Knowledge Weaver provides a convenient way to share detailed context without the hassle of manual text assembly. By using Obsidian as your primary note-taking tool and leveraging the plugin's functionality, you can quickly provide the AI with the background information it needs to generate high-quality, context-aware responses.
+
+## Installation
+
+As the plugin is not yet available in the official Obsidian plugin repository, you'll need to install it manually:
+
+1. Download the latest release from the GitHub releases page.
+2. Extract the downloaded ZIP file.
+3. Copy the extracted folder to your Obsidian vault's plugins directory (.obsidian/plugins/).
+4. Restart Obsidian.
+5. Go to Settings > Community plugins and enable "Obsidian Knowledge Weaver".
+
+## Usage
+
+1. Create a new note in Obsidian or open an existing one.
+2. Use the `![[]]` syntax to embed related notes that provide context for your main note.
+3. Run the "Weave Knowledge" command (you can assign a hotkey for this in Obsidian's settings).
+4. The plugin will replace all embed syntax with the actual content of the referenced notes and copy the result to your clipboard.
+5. Paste the copied text into your conversation with the AI language model to provide it with rich, interconnected context.
+
 # Obsidian Sample Plugin
-
-This is a sample plugin for Obsidian (https://obsidian.md).
-
-This project uses Typescript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in Typescript Definition format, which contains TSDoc comments describing what it does.
-
-**Note:** The Obsidian API is still in early alpha and is subject to change at any time!
-
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
-
-## First time developing plugins?
-
-Quick starting guide for new plugin devs:
-
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
 
 ## Releasing new releases
 

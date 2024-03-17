@@ -1,11 +1,11 @@
 {
 	"id": "obsidian-knowledge-weaver",
 	"name": "Knowledge Weaver",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
+	"description": "A plugin for Obsidian that replaces embed syntax with actual content for easier context sharing with AI language models.",
 	"author": "Maxiee",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"authorUrl": "https://github.com/maxiee/obsidian-knowledge-weaver",
+	"fundingUrl": "https://afdian.net/a/maeiee",
 	"isDesktopOnly": false
 }

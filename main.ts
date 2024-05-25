@@ -1,4 +1,5 @@
 import { Notice, Plugin, TFile } from 'obsidian';
+import * as fs from 'fs/promises';
 
 interface MyPluginSettings {
   mySetting: string;
@@ -17,7 +18,7 @@ export default class MyPlugin extends Plugin {
     }
 
     const obsidianEmbedRegex = /!\[\[([^\]]+)(?:\|([^\]]+))?\]\]/g;
-    const fileSystemEmbedRegex = /!\\(\\((\[^)\]+)\\)\\)/g;
+    const fileSystemEmbedRegex = /!\(\(([^)]+)\)\)/g;
 
     let match;
     let lastIndex = 0;
@@ -45,17 +46,17 @@ export default class MyPlugin extends Plugin {
     }
 
     while ((match = fileSystemEmbedRegex.exec(content)) !== null) {
-      const filePath = match[1];
-      try {
-        const embedContent = await this.app.vault.adapter.read(filePath);
-        content = content.slice(0, match.index) + embedContent + content.slice(match.index + match[0].length);
-        lastIndex = match.index + embedContent.length;
-      } catch (error) {
-        new Notice(`Unable to read file: ${filePath}`);
-        lastIndex = match.index + match[0].length;
-      }
-      fileSystemEmbedRegex.lastIndex = lastIndex;
-    }
+		const filePath = match[1];
+		try {
+		  const embedContent = await fs.readFile(filePath, 'utf-8');
+		  content = content.slice(0, match.index) + embedContent + content.slice(match.index + match[0].length);
+		  lastIndex = match.index + embedContent.length;
+		} catch (error) {
+		  new Notice(`Unable to read file: ${filePath}`);
+		  lastIndex = match.index + match[0].length;
+		}
+		fileSystemEmbedRegex.lastIndex = lastIndex;
+	}
 
     return content;
   }

@@ -26,10 +26,17 @@ export default class MyPlugin extends Plugin {
       const embedPath = match[1];
       const embedFile = this.app.metadataCache.getFirstLinkpathDest(embedPath, activeFile.path);
       if (embedFile) {
-        let embedContent = await this.app.vault.cachedRead(embedFile);
-        embedContent = await this.weaveKnowledgeInternal(embedContent, activeFile, maxDepth, currentDepth + 1);
-        content = content.slice(0, match.index) + embedContent + content.slice(match.index + match[0].length);
-        lastIndex = match.index + embedContent.length;
+		// 判断文件扩展名是否为图片类型
+		const fileExtension = embedFile.extension.toLowerCase();
+		if (fileExtension === 'png' || fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'gif') {
+			// 如果是图片类型,跳过嵌入
+			lastIndex = match.index + match[0].length;
+		} else {
+			let embedContent = await this.app.vault.cachedRead(embedFile);
+			embedContent = await this.weaveKnowledgeInternal(embedContent, activeFile, maxDepth, currentDepth + 1);
+			content = content.slice(0, match.index) + embedContent + content.slice(match.index + match[0].length);
+			lastIndex = match.index + embedContent.length;
+		}
       } else {
         new Notice(`Unable to resolve embed: ${embedPath}`);
         lastIndex = match.index + match[0].length;

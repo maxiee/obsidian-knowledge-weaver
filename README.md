@@ -29,8 +29,8 @@ As the plugin is not yet available in the official Obsidian plugin repository, y
 ## Usage
 
 1. Create a new note in Obsidian or open an existing one.
-2. Use the `![[]]` syntax to embed related notes that provide context for your main note.
+2. Use the `![[]]` syntax to embed related notes from within your Obsidian Vault that provide context for your main note.
+3. Introduce the new `!(())` syntax to embed files from your local file system, extending the plugin's functionality beyond the Obsidian Vault.
 3. Run the "Weave Knowledge" command (you can assign a hotkey for this in Obsidian's settings).
 4. The plugin will replace all embed syntax with the actual content of the referenced notes and copy the result to your clipboard.
 5. Paste the copied text into your conversation with the AI language model to provide it with rich, interconnected context.
-

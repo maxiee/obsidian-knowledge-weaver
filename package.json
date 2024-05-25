@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-knowledge-weaver",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "A plugin for Obsidian that replaces embed syntax with actual content for easier context sharing with AI language models.",
 	"main": "main.js",
 	"scripts": {
